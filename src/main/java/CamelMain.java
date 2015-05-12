@@ -1,5 +1,4 @@
 import org.apache.camel.CamelContext;
-import org.apache.camel.main.Main;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;

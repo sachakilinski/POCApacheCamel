@@ -9,20 +9,13 @@
           http://camel.apache.org/schema/spring
           http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-    <camel:camelContext id="camelContext">
-
-        <camel:route>
-            <camel:from uri="timer://runOnce?repeatCount=1&amp;delay=100"/>
-            <camel:to uri="http://www.ilegra.com.br"/>
-            <camel:to uri="step2"/>
-            <camel:to uri="stream:out"/>
-        </camel:route>
-
-    </camel:camelContext>
-
-    <bean id="step1" class="Step1"/>
-    <bean id="step2" class="Step2"/>
+    <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring" >
+        <route>
+            <from uri="timer://runOnce?repeatCount=1&amp;delay=100"/>
+            <to uri="http://www.ilegra.com.br"/>
+            <to uri="bean:step2"/>
+            <to uri="stream:out"/>
+        </route>
+    </camelContext>
 
 </beans>
-
-
